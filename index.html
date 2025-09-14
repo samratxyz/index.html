@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Professional Animated Landing Page</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0c356a;
+      --accent: #17bebb;
+      --bg: #f5f6fa;
+      --text: #222831;
+      --white: #fff;
+      --shadow: 0 8px 32px rgba(44, 62, 80, .2);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    header {
+      width: 100vw;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--primary) 60%, var(--accent) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .circle-bg {
+      position: absolute;
+      width: 1000px; height: 1000px;
+      top: -400px; left: -400px;
+      background: radial-gradient(circle, var(--accent), transparent 70%);
+      z-index: 1;
+      opacity: 0.15;
+      animation: float 10s linear infinite alternate;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(50px) scale(1.1);}
+    }
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--white);
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(-40px);
+      animation: fadeInDown 1.5s 0.3s forwards;
+    }
+    @keyframes fadeInDown {
+      to { opacity: 1; transform: translateY(0);}
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--white);
+      margin: 1.2rem 0 2.5rem 0;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeInUp 1.3s 1s forwards;
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; }
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: background 0.3s, transform 0.3s;
+      z-index: 2;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: fadeInScale 1s 1.8s forwards;
+    }
+    .cta-btn:hover {
+      background: #15a9ab;
+      transform: scale(1.05);
+    }
+    @keyframes fadeInScale {
+      to { opacity: 1; transform: scale(1);}
+    }
+    /* Animated lines */
+    .animated-lines {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .line {
+      position: absolute;
+      height: 2px;
+      width: 160px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 1px;
+      animation: moveLine 7s linear infinite;
+    }
+    .line:nth-child(1) { top: 30%; left: 12%; animation-delay: 0s;}
+    .line:nth-child(2) { top: 60%; left: 25%; animation-delay: 1s;}
+    .line:nth-child(3) { top: 80%; left: 70%; animation-delay: 2s;}
+    .line:nth-child(4) { top: 20%; left: 50%; animation-delay: 3s;}
+    .line:nth-child(5) { top: 50%; left: 80%; animation-delay: 4s;}
+    @keyframes moveLine {
+      from { transform: translateX(0);}
+      to { transform: translateX(60vw);}
+    }
+    /* Section */
+    section {
+      padding: 4rem 2rem 6rem 2rem;
+      max-width: 900px;
+      margin: -3rem auto 0 auto;
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 10;
+      animation: sectionIn 1.3s 2.2s forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    @keyframes sectionIn {
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+      justify-content: space-between;
+    }
+    .feature {
+      flex: 1 1 250px;
+      background: #f1f5f9;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(44,62,80,.07);
+      transition: transform 0.28s;
+    }
+    .feature:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 6px 20px rgba(44,62,80,.16);
+    }
+    .feature-icon {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: 1.1rem;
+      animation: iconPop 1s infinite alternate;
+    }
+    @keyframes iconPop {
+      to { transform: scale(1.1);}
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #556;
+      font-size: 1rem;
+      background: transparent;
+    }
+    @media (max-width: 700px) {
+      h1 { font-size: 2.1rem;}
+      .features { flex-direction: column;}
+      section { padding: 2.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="circle-bg"></div>
+    <div class="animated-lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <h1>Welcome to Your Professional Site</h1>
+    <h2>
+      Elevate your business with a modern, animated web presence.<br>
+      Crafted for impact and engagement.
+    </h2>
+    <a href="#features" class="cta-btn">Learn More</a>
+  </header>
+  <section id="features">
+    <h2 style="color: var(--primary); text-align:center; margin-bottom:1.6rem;">Our Features</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <h3>Modern Design</h3>
+        <p>Crisp, clean, and highly professional aesthetics to impress your audience from the first glance.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <h3>Smooth Animations</h3>
+        <p>Beautifully orchestrated entrance, hover, and background animations for a dynamic experience.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure and Responsive</h3>
+        <p>Fully responsive layout, optimized for all devices, with a focus on accessibility and security.</p>
+      </div>
+    </div>
+  </section>
+  <footer>
+    &copy; 2025 Your Company Name. All rights reserved.
+  </footer>
+</body>
+</html>
